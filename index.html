@@ -119,6 +119,15 @@ const supabase = window.supabase.createClient(
   SUPABASE_URL,
   SUPABASE_KEY
 );
+
+supabaseClient.auth.getSession().then(({ data, error }) => {
+  if (error) {
+    alert("연결 실패: " + error.message);
+  } else {
+    alert("Supabase Auth 연결 성공!");
+  }
+});
+
 </script>
     
 </body>
