@@ -135,17 +135,6 @@ supabase.auth.getSession()
     alert("오류: " + error.message);
   });
     
-  .then(({ data, error }) => {
-    if (error) {
-      console.error("연결 오류:", error);
-    } else {
-      console.log("Supabase 테스트 성공!", data);
-    }
-  })
-  .catch(error => {
-    console.error("오류:", error);
-  });
-
 </script>
     
 </body>
