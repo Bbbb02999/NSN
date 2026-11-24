@@ -120,9 +120,21 @@ const supabase = window.supabase.createClient(
   SUPABASE_KEY
 );
 
-console.log("NSN 스크립트 실행됨");
+
+    alert("NSN 스크립트 실행됨");
 
 supabase.auth.getSession()
+  .then(({ data, error }) => {
+    if (error) {
+      alert("연결 오류: " + error.message);
+    } else {
+      alert("Supabase 연결 성공!");
+    }
+  })
+  .catch(error => {
+    alert("오류: " + error.message);
+  });
+    
   .then(({ data, error }) => {
     if (error) {
       console.error("연결 오류:", error);
