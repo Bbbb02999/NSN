@@ -110,5 +110,60 @@
     NSN © 2026
 </footer>
 
+<!-- Supabase 연결 상태 표시 -->
+<div id="supabase-status" style="
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 99999;
+    background: #292b35;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 13px;
+">
+    Supabase 연결 확인 중
+</div>
+
+<!-- Supabase 라이브러리 -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+const SUPABASE_URL = "https://bovbrweiceexyqhhzvdn.supabase.co";
+const SUPABASE_KEY = "여기에_PUBLISHABLE_KEY";
+
+const supabase = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
+async function checkSupabase() {
+    const status = document.getElementById("supabase-status");
+
+    try {
+        const response = await fetch(
+            SUPABASE_URL + "/rest/v1/",
+            {
+                headers: {
+                    "apikey": SUPABASE_KEY,
+                    "Authorization": "Bearer " + SUPABASE_KEY
+                }
+            }
+        );
+
+        if (response.ok) {
+            status.textContent = "Supabase 연결 성공";
+        } else {
+            status.textContent = "Supabase 연결 실패";
+        }
+
+    } catch (error) {
+        status.textContent = "Supabase 연결 실패";
+    }
+}
+
+checkSupabase();
+</script>
+    
 </body>
 </html>
