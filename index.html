@@ -110,35 +110,5 @@
     NSN © 2026
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-
-alert("자바스크립트 실행 확인!");
-    
-const SUPABASE_URL = "https://bovbrweiceexyqhhzvdn.supabase.co";
-const SUPABASE_KEY = "sb_publishable_0xpdeuex_tbhkFVd1hCz8g_658a9ivp";
-
-const supabase = window.supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_KEY
-);
-
-
-    alert("NSN 스크립트 실행됨");
-
-supabase.auth.getSession()
-  .then(({ data, error }) => {
-    if (error) {
-      alert("연결 오류: " + error.message);
-    } else {
-      alert("Supabase 연결 성공!");
-    }
-  })
-  .catch(error => {
-    alert("오류: " + error.message);
-  });
-    
-</script>
-    
 </body>
 </html>
