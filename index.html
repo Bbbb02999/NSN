@@ -178,34 +178,6 @@ async function checkSupabase() {
 
 checkSupabase();
 </script>
-                signal: controller.signal
-            }
-        );
-
-        if (response.ok) {
-            status.textContent = "Supabase 연결 성공";
-        } else {
-            status.textContent =
-                "Supabase 응답 오류 (" + response.status + ")";
-        }
-
-    } catch (error) {
-
-        if (error.name === "AbortError") {
-            status.textContent = "Supabase 연결 시간 초과";
-        } else {
-            status.textContent = "Supabase 연결 실패";
-        }
-
-        console.error(error);
-
-    } finally {
-        clearTimeout(timeout);
-    }
-}
-
-checkSupabase();
-</script>
     
 </body>
 </html>
